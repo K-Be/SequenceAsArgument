@@ -6,6 +6,12 @@
 //
 
 import Foundation
+import GameKit
 
-print("Hello, World!")
+
+let numbers = Utils.getArray()
+
+let handler = GroupHandler(numbers)
+var sum = handler.group()
+print(sum[0])
 
