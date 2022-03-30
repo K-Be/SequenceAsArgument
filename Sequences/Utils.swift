@@ -12,4 +12,8 @@ struct Utils {
         let numbers = Array(0..<count)
         return numbers
     }
+
+    static func addressToString(_ o: UnsafeRawPointer ) -> String {
+        String(format: "%p", Int(bitPattern: o))
+    }
 }
