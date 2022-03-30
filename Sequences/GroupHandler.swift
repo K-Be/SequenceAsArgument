@@ -20,7 +20,7 @@ class GroupHandler {
         var sum = Array<Int>(repeating: 0, count: numbers.count)
         for _ in 0..<countRepeats {
             for start in 0..<numbers.count {
-                let dropped = Array(numbers.dropFirst(start))
+                let dropped = numbers.dropFirst(start)
                 let numbers = dropped.prefix(3)
                 sum[start] = self.sum(Array(numbers))
             }
