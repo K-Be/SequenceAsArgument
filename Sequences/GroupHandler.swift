@@ -36,10 +36,25 @@ class GroupHandler {
         _ = self.sum(ContiguousArray([0.4, 0.3, 0.2]))
     }
 
+    public func sumStrings() -> String {
+        let result = self.sum(["h", "e", "l", "l", "o"])
+        return result
+    }
+
     private func sum<Seq>(_ numbers: Seq) -> Seq.Element
         where Seq: Sequence, Seq.Element: AdditiveArithmetic  {
 
             let result = numbers.reduce(Seq.Element.zero) { $0 + $1 }
                 return result
+    }
+}
+
+extension String: AdditiveArithmetic {
+    static public var zero: String {
+        return ""
+    }
+
+    public static func - (lhs: String, rhs: String) -> String {
+        return lhs
     }
 }

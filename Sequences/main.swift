@@ -12,6 +12,9 @@ import GameKit
 let numbers = Utils.getArray()
 
 let handler = GroupHandler(numbers)
-var sum = handler.group()
-print(sum[0])
+//var sum = handler.group()
+//print(sum[0])
+
+let sumStr = handler.sumStrings()
+print("SumString: \(sumStr)")
 
