@@ -22,14 +22,16 @@ class GroupHandler {
             for start in 0..<numbers.count {
                 let dropped = numbers.dropFirst(start)
                 let numbers = dropped.prefix(3)
-                sum[start] = self.sum(Array(numbers))
+                sum[start] = self.sum(numbers)
             }
         }
         return sum
     }
 
-    private func sum(_ numbers: Array<Int>) -> Int {
-        let result = numbers.reduce(0) { $0 + $1 }
-        return result
+    private func sum<Seq>(_ numbers: Seq) -> Int
+            where Seq: Sequence, Seq.Element == Int {
+
+                let result = numbers.reduce(0) { $0 + $1 }
+                return result
     }
 }
