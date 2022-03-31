@@ -28,10 +28,18 @@ class GroupHandler {
         return sum
     }
 
-    private func sum<Seq>(_ numbers: Seq) -> Int
-            where Seq: Sequence, Seq.Element == Int {
+    private func sumSet() {
+        _ = self.sum(Set([1, 2, 3]))
+    }
 
-                let result = numbers.reduce(0) { $0 + $1 }
+    private func sumFloat() {
+        _ = self.sum(ContiguousArray([0.4, 0.3, 0.2]))
+    }
+
+    private func sum<Seq>(_ numbers: Seq) -> Seq.Element
+        where Seq: Sequence, Seq.Element: AdditiveArithmetic  {
+
+            let result = numbers.reduce(Seq.Element.zero) { $0 + $1 }
                 return result
     }
 }
